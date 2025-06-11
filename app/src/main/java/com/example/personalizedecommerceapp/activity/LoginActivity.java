@@ -1,0 +1,139 @@
+package com.example.personalizedecommerceapp.activity;
+
+import android.content.Context;
+import android.content.Intent;
+import android.content.res.Configuration;
+import android.graphics.Color;
+import android.os.Bundle;
+import android.util.Patterns;
+import android.view.View;
+import android.view.Window;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.personalizedecommerceapp.R;
+import com.example.personalizedecommerceapp.controller.BaseController;
+import com.example.personalizedecommerceapp.interfaces.ILoginController;
+import com.example.personalizedecommerceapp.model.UserMaster;
+import com.example.personalizedecommerceapp.util.Constants;
+import com.example.personalizedecommerceapp.util.Helper;
+import com.google.android.material.color.MaterialColors;
+
+public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
+
+    private EditText etEmailId, etPassword;
+    private TextView tvSignUp, tvError;
+    private Button btnLogin;
+
+    private Context context;
+    private String userType;
+    private ILoginController<UserMaster> controller;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_login);
+        setStatusBarColor();
+        initUI();
+        setListeners();
+        initObj();
+    }
+
+    private void setStatusBarColor() {
+        Window window = this.getWindow();
+        int colorOnPrimary, color;
+        switch (getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK) {
+            case Configuration.UI_MODE_NIGHT_YES:
+            case Configuration.UI_MODE_NIGHT_NO:
+                colorOnPrimary = com.google.android.material.R.attr.colorPrimaryContainer;
+                color = MaterialColors.getColor(this, colorOnPrimary, Color.BLACK);
+                window.setStatusBarColor(color);
+                break;
+        }
+        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+    }
+
+    private void initUI() {
+        etEmailId = findViewById(R.id.etEmailId);
+        etPassword = findViewById(R.id.etPassword);
+        tvSignUp = findViewById(R.id.tvSignUp);
+        tvError = findViewById(R.id.tvError);
+        btnLogin = findViewById(R.id.btnLogin);
+    }
+
+    private void setListeners() {
+        tvError.setVisibility(View.GONE);
+        tvSignUp.setOnClickListener(this);
+        btnLogin.setOnClickListener(this);
+    }
+
+    private void initObj() {
+        context = this;
+        userType = getIntent().getStringExtra(Constants.USER_TYPE);
+        controller = BaseController.getLoginController(context);
+    }
+
+    @Override
+    public void onClick(View view) {
+        if (view.getId() == R.id.btnLogin) {
+            onClickBtnLogin();
+        } else if (view.getId() == R.id.tvSignUp) {
+            Helper.goTo(context, RegistrationActivity.class);
+        }
+    }
+
+    private void onClickBtnLogin() {
+        if (isValidate()) {
+            String username = etEmailId.getText().toString();
+            String password = etPassword.getText().toString();
+
+            if (userType.equals(Constants.SHOP) || userType.equals(Constants.USER)) {
+                boolean result = controller.authenticateUser(username, password, userType);
+                if (result) {
+                    tvError.setVisibility(View.GONE);
+                    int flags = Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK
+                            | Intent.FLAG_ACTIVITY_NEW_TASK;
+                    Helper.goToWithFlags(this, userType.equals(Constants.SHOP)
+                            ? BottomNavigationActivity.class : BottomNavigationActivity.class, flags);
+                    finish();
+                } else {
+                    String error = "Invalid UserName or Password";
+                    tvError.setText(error);
+                    tvError.setVisibility(View.VISIBLE);
+                }
+            } else {
+                tvError.setText(Constants.SOMETHING_WENT_WRONG);
+                tvError.setVisibility(View.VISIBLE);
+            }
+        }
+    }
+
+    private boolean isValidate() {
+        String error = "";
+        if (etEmailId.getText().toString().trim().equals("")) {
+            error = error + "Email Id required\n";
+            etEmailId.setError("required");
+        }else {
+            if (!Patterns.EMAIL_ADDRESS.matcher(etEmailId.getText().toString()).matches()) {
+                etEmailId.setError("Invalid");
+                etEmailId.requestFocus();
+                return false;
+            }
+        }
+        if (etPassword.getText().toString().trim().equals("")) {
+            error = error + "Password required\n";
+            etPassword.setError("required");
+        }
+
+        if (error.equals("")) {
+            tvError.setVisibility(View.GONE);
+            return true;
+        } else {
+            tvError.setVisibility(View.VISIBLE);
+            return false;
+        }
+    }
+}

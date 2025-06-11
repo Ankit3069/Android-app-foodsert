@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rlMyRateAndReviewLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/btnSubmit"
+        android:layout_below="@id/toolbar"
+        android:layout_centerInParent="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/layout_padding"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="@dimen/layout_padding">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/content_padding"
+                    android:layout_weight=".5"
+                    android:padding="@dimen/content_padding"
+                    android:text="Average rating:"
+                    android:textSize="@dimen/textSizeInEditText"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:id="@+id/tvAverageRating"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/content_padding"
+                    android:layout_weight=".5"
+                    android:padding="@dimen/content_padding"
+                    android:text="No ratings"
+                    android:textAlignment="viewEnd"
+                    android:textSize="@dimen/textSizeInEditText"
+                    android:textStyle="bold"
+                    tools:ignore="HardcodedText" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/layout_padding"
+                android:fontFamily="sans-serif-black"
+                android:text="My Rating :"
+                android:textSize="@dimen/textSizeInEditText"
+                tools:ignore="HardcodedText" />
+
+            <RatingBar
+                android:id="@+id/rbMyRating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/layout_padding"
+                android:max="5" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/layout_padding"
+                android:elevation="@dimen/card_elevation"
+                android:hint="Enter Feedback"
+                app:startIconDrawable="@drawable/ic_baseline_description_24"
+                tools:ignore="HardcodedText">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etFeedBack"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:importantForAutofill="no"
+                    android:inputType="textMultiLine"
+                    android:labelFor="@id/etFeedBack"
+                    android:minLines="15"
+                    android:singleLine="true" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <Button
+        android:id="@+id/btnSubmit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="?attr/colorOnPrimary"
+        android:backgroundTint="?attr/colorOnPrimary"
+        android:backgroundTintMode="src_atop"
+        android:text="SUBMIT"
+        android:textColor="@color/white"
+        tools:ignore="HardcodedText" />
+</RelativeLayout>

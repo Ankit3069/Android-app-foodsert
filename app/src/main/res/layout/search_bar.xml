@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/content_padding"
+    android:orientation="horizontal"
+    android:padding="@dimen/content_padding">
+
+    <TableRow
+        android:id="@+id/tbSearchLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/low_content_padding"
+        android:layout_marginTop="@dimen/low_content_padding"
+        android:layout_marginEnd="@dimen/low_content_padding"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <EditText
+                android:id="@+id/etSearch"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="@dimen/content_padding"
+                android:autofillHints="name"
+                android:background="@drawable/search_bar"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:hint="Search..."
+                android:imeOptions="actionDone"
+                android:inputType="text"
+                android:paddingStart="@dimen/content_padding"
+                android:paddingEnd="@dimen/search_close_dimen"
+                android:textColor="?attr/colorOnPrimary"
+                android:textColorHint="?attr/colorOnPrimary"
+                tools:ignore="HardcodedText" />
+
+            <ImageView
+                android:id="@+id/ivCloseSearch"
+                android:layout_width="@dimen/search_close_dimen"
+                android:layout_height="match_parent"
+                android:layout_alignEnd="@id/etSearch"
+                android:contentDescription="search"
+                android:scaleType="centerInside"
+                app:tint="?attr/colorOnPrimary"
+                app:tintMode="src_atop"
+                tools:ignore="HardcodedText" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/search_bar">
+
+            <ImageView
+                android:id="@+id/ivFilter"
+                android:layout_width="30dp"
+                android:layout_height="40dp"
+                android:layout_margin="@dimen/low_content_padding"
+                android:contentDescription="Filter"
+                android:scaleType="center"
+                app:srcCompat="@drawable/ic_icon_filter"
+                app:tint="?attr/colorOnPrimary"
+                tools:ignore="HardcodedText" />
+
+        </LinearLayout>
+
+    </TableRow>
+
+
+</RelativeLayout>

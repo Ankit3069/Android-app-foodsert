@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <item
+        android:id="@+id/menuProfile"
+        android:title="Profile"
+        tools:ignore="HardcodedText" />
+    <item
+        android:id="@+id/changepass"
+        android:title="Change Password"
+        tools:ignore="HardcodedText" />
+    <item
+        android:id="@+id/preference"
+        android:title="Preference"
+        tools:ignore="HardcodedText" />
+    <item
+        android:id="@+id/menuLogout"
+        android:title="Logout"
+        tools:ignore="HardcodedText" />
+</menu>

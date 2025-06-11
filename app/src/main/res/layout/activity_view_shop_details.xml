@@ -1,0 +1,427 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rl"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/btnViewProducts"
+        android:layout_below="@id/toolbar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/content_padding"
+                    android:background="@drawable/shadow_card_view_style"
+                    android:elevation="@dimen/normal_card_elevation"
+                    app:cardBackgroundColor="?attr/colorPrimaryContainer"
+                    app:cardCornerRadius="@dimen/card_corner_radius"
+                    app:cardUseCompatPadding="true">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/layout_padding"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/content_padding"
+                            android:clickable="false"
+                            android:focusable="false"
+                            android:focusableInTouchMode="false"
+                            android:fontFamily="sans-serif-black"
+                            android:longClickable="false"
+                            android:text="General"
+                            android:textSize="@dimen/textSizeLarge"
+                            tools:ignore="HardcodedText" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/layout_padding"
+                            android:clickable="false"
+                            android:elevation="@dimen/card_elevation"
+                            android:hint="Shop Name"
+                            android:longClickable="false"
+                            app:startIconDrawable="@drawable/ic_baseline_drive_file_rename_outline_24"
+                            tools:ignore="HardcodedText">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/etShopName"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:autofillHints="name"
+                                android:clickable="true"
+                                android:editable="false"
+                                android:focusable="false"
+                                android:inputType="none"
+                                android:labelFor="@id/etShopName"
+                                android:singleLine="true" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/layout_padding"
+                            android:clickable="false"
+                            android:elevation="@dimen/card_elevation"
+                            android:hint="Shop Url"
+                            android:longClickable="false"
+                            app:startIconDrawable="@drawable/ic_baseline_drive_file_rename_outline_24"
+                            tools:ignore="HardcodedText">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/etShopUrl"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:autofillHints="name"
+                                android:clickable="true"
+                                android:editable="false"
+                                android:focusable="false"
+                                android:inputType="none"
+                                android:labelFor="@id/etShopUrl"
+                                android:singleLine="true" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/layout_padding"
+                            android:clickable="false"
+                            android:elevation="@dimen/card_elevation"
+                            android:hint="Shop Type"
+                            android:longClickable="false"
+                            app:startIconDrawable="@drawable/ic_baseline_drive_file_rename_outline_24"
+                            tools:ignore="HardcodedText">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/etShopType"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:autofillHints="name"
+                                android:clickable="true"
+                                android:editable="false"
+                                android:focusable="false"
+                                android:inputType="none"
+                                android:labelFor="@id/etShopType"
+                                android:singleLine="true" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/content_padding"
+                    android:background="@drawable/shadow_card_view_style"
+                    android:elevation="@dimen/normal_card_elevation"
+                    app:cardBackgroundColor="?attr/colorPrimaryContainer"
+                    app:cardCornerRadius="@dimen/card_corner_radius"
+                    app:cardUseCompatPadding="true">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/layout_padding"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/content_padding"
+                            android:clickable="false"
+                            android:focusable="false"
+                            android:focusableInTouchMode="false"
+                            android:fontFamily="sans-serif-black"
+                            android:longClickable="false"
+                            android:text="Other Details"
+                            android:textSize="@dimen/textSizeLarge"
+                            tools:ignore="HardcodedText" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/layout_padding"
+                            android:clickable="false"
+                            android:elevation="@dimen/card_elevation"
+                            android:hint="Shop Timings"
+                            android:longClickable="false"
+                            app:startIconDrawable="@drawable/ic_baseline_drive_file_rename_outline_24"
+                            tools:ignore="HardcodedText">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/etShopTimings"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:autofillHints="name"
+                                android:clickable="true"
+                                android:editable="false"
+                                android:focusable="false"
+                                android:inputType="none"
+                                android:labelFor="@id/etShopTimings"
+                                android:singleLine="true" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/layout_padding"
+                            android:clickable="false"
+                            android:elevation="@dimen/card_elevation"
+                            android:hint="Shop Description"
+                            android:longClickable="false"
+                            app:startIconDrawable="@drawable/ic_baseline_drive_file_rename_outline_24"
+                            tools:ignore="HardcodedText">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/etShopDescription"
+                                android:layout_width="match_parent"
+                                android:layout_height="100dp"
+                                android:autofillHints="name"
+                                android:clickable="true"
+                                android:editable="false"
+                                android:focusable="false"
+                                android:inputType="none"
+                                android:labelFor="@id/etShopDescription"
+                                android:minLines="3"
+                                android:singleLine="true" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/layout_padding"
+                            android:clickable="false"
+                            android:elevation="@dimen/card_elevation"
+                            android:hint="Cusine"
+                            android:longClickable="false"
+                            app:startIconDrawable="@drawable/ic_baseline_drive_file_rename_outline_24"
+                            tools:ignore="HardcodedText">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/etCuisine"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:autofillHints="name"
+                                android:clickable="true"
+                                android:editable="false"
+                                android:focusable="false"
+                                android:inputType="none"
+                                android:labelFor="@id/etCuisine"
+                                android:singleLine="true" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/layout_padding"
+                            android:clickable="false"
+                            android:elevation="@dimen/card_elevation"
+                            android:hint="Price"
+                            android:longClickable="false"
+                            app:startIconDrawable="@drawable/ic_baseline_drive_file_rename_outline_24"
+                            tools:ignore="HardcodedText">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/etPrice"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:autofillHints="name"
+                                android:clickable="true"
+                                android:editable="false"
+                                android:focusable="false"
+                                android:inputType="none"
+                                android:labelFor="@id/etCuisine"
+                                android:singleLine="true" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginBottom="50dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/content_padding"
+                    android:background="@drawable/shadow_card_view_style"
+                    android:elevation="@dimen/normal_card_elevation"
+                    app:cardBackgroundColor="?attr/colorPrimaryContainer"
+                    app:cardCornerRadius="@dimen/card_corner_radius"
+                    app:cardUseCompatPadding="true">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/layout_padding"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/content_padding"
+                            android:clickable="false"
+                            android:focusable="false"
+                            android:focusableInTouchMode="false"
+                            android:fontFamily="sans-serif-black"
+                            android:longClickable="false"
+                            android:text="Address"
+                            android:textSize="@dimen/textSizeLarge"
+                            tools:ignore="HardcodedText" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/layout_padding"
+                            android:clickable="false"
+                            android:elevation="@dimen/card_elevation"
+                            android:hint="City"
+                            android:longClickable="false"
+                            app:startIconDrawable="@drawable/ic_baseline_drive_file_rename_outline_24"
+                            tools:ignore="HardcodedText">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/etCity"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:autofillHints="name"
+                                android:clickable="true"
+                                android:editable="false"
+                                android:focusable="false"
+                                android:inputType="none"
+                                android:labelFor="@id/etCity"
+                                android:singleLine="true" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/layout_padding"
+                            android:clickable="false"
+                            android:elevation="@dimen/card_elevation"
+                            android:hint="Shop Region"
+                            android:longClickable="false"
+                            app:startIconDrawable="@drawable/ic_baseline_drive_file_rename_outline_24"
+                            tools:ignore="HardcodedText">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/etRegion"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:autofillHints="name"
+                                android:clickable="true"
+                                android:editable="false"
+                                android:focusable="false"
+                                android:inputType="none"
+                                android:labelFor="@id/etShopDescription"
+                                android:singleLine="true" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+    <TableRow
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btnloc"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorOnPrimary"
+            android:backgroundTint="?attr/colorOnPrimary"
+            android:backgroundTintMode="src_atop"
+            android:text="Locate"
+            android:textColor="@color/white"
+            tools:ignore="HardcodedText" />
+
+        <Button
+            android:id="@+id/btnViewProducts"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorOnPrimary"
+            android:backgroundTint="?attr/colorOnPrimary"
+            android:backgroundTintMode="src_atop"
+            android:text="View products"
+            android:textColor="@color/white"
+            tools:ignore="HardcodedText" />
+
+
+    </TableRow>
+
+
+</RelativeLayout>

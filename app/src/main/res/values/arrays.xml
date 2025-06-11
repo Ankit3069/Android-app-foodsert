@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="filters">
+        <item>Name</item>
+        <item>Shop Type</item>
+        <item>Cuisine Category</item>
+        <item>Price</item>
+    </string-array>
+</resources>
